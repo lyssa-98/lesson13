@@ -1,0 +1,65 @@
+@media print {
+    /* Hide everything that is unneeded */
+    header h1, header nav, footer, img {
+        display: none;
+    }
+    body {
+        font: 12pt Georgia, Garamond;
+        line-height: 1.3;
+    }
+    h1 {
+        font-size: 25pt;
+    }
+    h2 {
+        font-size: 14pt;
+        margin-top: 25px;
+    }
+    aside h2 {
+        font-size: 18pt;
+    }
+    /* Show logo for print */
+    header .print {
+        display: block;
+    }
+    img {
+        border: 0;
+    }
+    /* Move header away from content */
+    header {
+        margin-bottom: 40px;
+    }
+    /* Display the URL of the site after the logo */
+    header::after {
+        content: "www.smashing-winery.com";
+    }
+    /* Add message to top of page */
+    header:before {
+        content: "Thank you for printing our content.  Please check back soon for new offers about our delicious wine.";
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #bbb;
+        padding: 3px 5px;
+        font-style: italic;
+    }
+    blockquote {
+        font-size: 13pt;
+        font-style: italic;
+    }
+}
+
+p a{color: #000;}
+
+p a:after {
+    content: " (http://www.smashing-winery.com/" attr(href) ")";
+    word-wrap: break-word;
+}
+/* Adjust external links*/
+/* ^ means 'begins with' */
+p a[href^="http://"]:after, p a[href^="https://"]:after {
+    content: " (" attr(href) ")";
+}
+aside {
+    border-top: 1px solid #bbb;
+    margin-top: 30px;
+    page-break-before: always; /*move aside to new page */
+}
